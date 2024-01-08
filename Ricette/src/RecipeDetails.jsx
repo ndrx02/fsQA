@@ -4,13 +4,13 @@ import { useParams } from "react-router-dom";
 
 export function RecipeDetails() {
   const [recipe, setRecipe] = useState(null);
-  const { recipeId } = useParams();
+  const { id } = useParams();
 
   useEffect(() => {
-    axios.get(`http://localhost:3000/recipes/${recipeId}`).then((response) => {
+    axios.get(`http://localhost:3000/recipes/${id}`).then((response) => {
       setRecipe(response.data);
     });
-  }, []);
+  }, [id]);
 
   if (!recipe) {
     return <div>Loading...</div>;
